@@ -94,5 +94,3 @@ s1<-ggplot(df2[df$factor=="01",],aes(x=variable,y=value,group=well_ID,colour=fac
 s4<-ggplot(df2[df$factor=="04",],aes(x=variable,y=value,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[2])+ylim(c(0,100))+labs(x="#days",y="% area cells")
 s10<-ggplot(df2[df$factor=="10",],aes(x=variable,y=value,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[3])+ylim(c(0,100))+labs(x="#days",y="% area cells")
 grid.arrange(stot,s1,s4,s10,ncol=2)
- 
-#to rule out the behaviour it migth be interesting to compare the simulated growth in the well if the colutre start from just one cell or not
