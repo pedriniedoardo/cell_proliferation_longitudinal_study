@@ -83,6 +83,9 @@ df2<-melt(TotDf_ord_un,id.vars = c("factor","well_ID"))
 days<-rep(2:(length(files)+1),each=241)
 df$variable<-days
 df2$variable<-days
+#add the log2 of the area
+df2$log2<-log2(df2$value)
+
 st<-ggplot(df,aes(x=variable,y=value,color=as.factor(factor),group=well_ID))+geom_point()+geom_line()
 st2<-ggplot(df2,aes(x=variable,y=value,color=as.factor(factor),group=well_ID))+geom_point()+geom_line()
 
@@ -94,3 +97,9 @@ s1<-ggplot(df2[df$factor=="01",],aes(x=variable,y=value,group=well_ID,colour=fac
 s4<-ggplot(df2[df$factor=="04",],aes(x=variable,y=value,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[2])+ylim(c(0,100))+labs(x="#days",y="% area cells")
 s10<-ggplot(df2[df$factor=="10",],aes(x=variable,y=value,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[3])+ylim(c(0,100))+labs(x="#days",y="% area cells")
 grid.arrange(stot,s1,s4,s10,ncol=2)
+
+stot_log<-ggplot(df2,aes(x=variable,y=log2,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette)+ylim(c(0,7))+labs(x="#days",y="log2 %area cells")
+s1_log<-ggplot(df2[df2$factor=="01",],aes(x=variable,y=log2,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[1])+ylim(c(0,7))+labs(x="#days",y="log2 % area cells")
+s4_log<-ggplot(df2[df2$factor=="04",],aes(x=variable,y=log2,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[2])+ylim(c(0,7))+labs(x="#days",y="log2 % area cells")
+s10_log<-ggplot(df2[df2$factor=="10",],aes(x=variable,y=log2,group=well_ID,colour=factor))+geom_point()+geom_line()+scale_color_manual(values = cbbPalette[3])+ylim(c(0,7))+labs(x="#days",y="log2 % area cells")
+grid.arrange(stot_log,s1_log,s4_log,s10_log,ncol=2)
