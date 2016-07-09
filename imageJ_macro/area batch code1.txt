@@ -1,0 +1,12 @@
+run("8-bit");
+//run("Brightness/Contrast...");
+run("Enhance Contrast", "saturated=0.35");
+run("Apply LUT");
+run("Find Edges");
+setAutoThreshold("Default dark");
+//run("Threshold...");
+setAutoThreshold("Default dark");
+//setThreshold(45, 255);
+run("Convert to Mask");
+run("Dilate");
+run("Measure");
