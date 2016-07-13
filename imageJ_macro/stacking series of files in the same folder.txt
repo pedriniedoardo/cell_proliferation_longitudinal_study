@@ -1,0 +1,16 @@
+Dialog.create("create a stack");
+Dialog.addNumber("Number of the well",1);
+Dialog.addNumber("how many timepoints",10);
+Dialog.show();
+well = Dialog.getNumber();
+time = Dialog.getNumber();
+print(well)
+print(time)
+
+dirorigin = getDirectory("Choose Source Directory");
+
+for (i=1; i<=time; i++) {
+	a=dirorigin+well+"_"+i+".tif";
+	open(a);
+}
+run("Images to Stack", "method=[Copy (center)] name=&well title=[] use");
