@@ -8,3 +8,5 @@ place the file in the plugins folder of imegeJ.
 ##
 "area batch code1.txt" identify and measure the area occupied by cells for each image in the folder
 copy the macro in process/batch/macro
+##
+"stacking series of files" produce a stack from a series of file with the pattern (well-ID_n.tif) with n as an increasing number starting from 1
