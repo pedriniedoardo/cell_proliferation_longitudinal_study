@@ -35,7 +35,7 @@ sum(apply(X = indexis,MARGIN = 1,FUN =function(x) length(unique(x))>1))
 plot(2:(ncol(TotDf[1,][-1])+1),unlist(TotDf[1,][-1]),xlab = "#day",ylab = "raw area",main = "area of the corner well (beads)")
 ####
 #let's check if the problem is evaporation 
-#(this well whas meant to be use as a normalizer of the area to correct the different acquisition differences)
+#(this well was meant to be use as a normalizer of the area to correct the different acquisition differences)
 
 
 ##############################################################################################################################
@@ -73,7 +73,7 @@ TotDf_ord_un$factor<-fac
 #the unormalized df
 write.csv(TotDf_ord_un,paste0(getwd(),"/","area_not_normalized.csv"),row.names = FALSE)
 
-
+#I decided to work with the unormalized data, the corner well had an higher evaporation rate.
 #look at the distribution of the area
 library(ggplot2)
 library(reshape)
