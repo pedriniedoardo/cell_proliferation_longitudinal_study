@@ -55,7 +55,7 @@ files<-dir(path)
   TotDf_ord_un$well_ID<-TotDf_ord$`well ID`
   TotDf_ord_un$factor<-fac
   #the unormalized df
-  write.csv(TotDf_ord_un,paste0(getwd(),"/","area_not_normalized2.csv"),row.names = FALSE)
+  write.csv(TotDf_ord_un,paste0(getwd(),"/","area_not_normalized.csv"),row.names = FALSE)
   
 #####################################################################
 
